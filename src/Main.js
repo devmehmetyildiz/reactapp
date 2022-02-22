@@ -3,6 +3,7 @@ import { useIntl } from 'react-intl';
 import Switch from 'react-switch';
 import { FaHeart, FaBars } from 'react-icons/fa';
 import reactLogo from './assets/logo.svg';
+import { useSelector, useDispatch } from 'react-redux'
 
 const Main = ({
   collapsed,
@@ -14,6 +15,7 @@ const Main = ({
   handleImageChange,
 }) => {
   const intl = useIntl();
+  const reduxcollapse = useSelector((state) => state.navbarredux.collapse)
   return (
     <main>
       <div className="btn-toggle" onClick={() => handleToggleSidebar(true)}>
@@ -54,7 +56,7 @@ const Main = ({
           checkedIcon={false}
           uncheckedIcon={false}
           onChange={handleCollapsedChange}
-          checked={collapsed}
+          checked={reduxcollapse}
           onColor="#219de9"
           offColor="#bbbbbb"
         />

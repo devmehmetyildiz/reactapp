@@ -10,46 +10,34 @@ $icon-size: 35px;
 
 @import "~react-pro-sidebar/dist/scss/styles.scss";
 
-
-
 .containerspecial {
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-template-rows: 50px 1fr 1fr 100px;
+  width: 100%;
+  height: 100%; 
 }
 
 .sidecontentmenu {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 5;
+ width: 100%;
+ height:calc(100% - 3rem);
 }
 
 
-
-.menuicon {
-  grid-column: 2;
-  align-items: center;
-  justify-items: center;
-  position: relative;
-  display: flex;
-  margin-left: 10px;
+.menuicon{  
+  padding: 30px;
 }
 
 .menuiconitem {
   color: #dee2ec;
-  cursor: pointer;
+  cursor: pointer;  
 }
 
 .header {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row: 1;
+  width: 100%;
+  height: 3rem;
   background-color: #0b0939;
-  display: grid;
-  grid-template-columns: 20px 50px 1fr;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 10;
 }
 
 body {

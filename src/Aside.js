@@ -1,5 +1,6 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
+import { useSelector, useDispatch } from 'react-redux'
 import {
   ProSidebar,
   Menu,
@@ -14,11 +15,12 @@ import sidebarBg from './assets/bg2.jpg';
 
 const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
   const intl = useIntl();
+  const reduxcollapse = useSelector((state) => state.navbarredux.collapse)
   return (
     <ProSidebar
       image={image ? sidebarBg : false}
       rtl={rtl}
-      collapsed={collapsed}
+      collapsed={reduxcollapse}
       toggled={toggled}
       breakPoint="md"
       onToggle={handleToggleSidebar}

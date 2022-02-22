@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import Aside from './Aside';
 import Main from './Main';
 import { FaBars } from 'react-icons/fa';
+import { useSelector, useDispatch } from 'react-redux'
+import { tooglecollapse } from './slice/navbarslice'
 
 function Layout({ setLocale }) {
   const [rtl, setRtl] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [image, setImage] = useState(true);
   const [toggled, setToggled] = useState(false);
-
+  const dispatch = useDispatch()
   const handleCollapsedChange = (checked) => {
     setCollapsed(checked);
   };
@@ -33,7 +35,7 @@ function Layout({ setLocale }) {
     <div className='containerspecial'>
       <div className='header'>
         <div className='menuicon'>          
-          <FaBars className='menuiconitem' onClick={clickmenubar} />
+          <FaBars className='menuiconitem' onClick={()=>dispatch(tooglecollapse())} />
         </div>
       </div>
       <div className='sidecontentmenu'>
