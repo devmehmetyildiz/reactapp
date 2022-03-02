@@ -1,0 +1,30 @@
+.logout {
+    display: flex;    
+    align-items: center;
+    justify-content: end;  
+    font-family: "Inter";
+    color: white;
+    width: 100%;
+}
+
+.logout svg{
+margin:0 5px;
+font-size: 30px;
+color: white;
+}
+
+.logout__button {
+    min-width: 300px;
+    padding: 17px 30px;
+    margin-top: 20px;
+    background: black;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-family: "Inter";
+    border-radius: 3px;
+}
+
+.logout h5{
+    color: white;
+}

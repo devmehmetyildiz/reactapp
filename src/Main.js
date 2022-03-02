@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { useIntl } from 'react-intl';
 import Switch from 'react-switch';
 import { FaHeart, FaBars } from 'react-icons/fa';
@@ -14,7 +14,9 @@ const Main = ({
   handleRtlChange,
   handleImageChange,
 }) => {
-  const intl = useIntl();
+  
+  
+
   const reduxcollapse = useSelector((state) => state.navbarredux.collapse)
   return (
     <main>
@@ -23,9 +25,9 @@ const Main = ({
       </div>
       <header>
         <h1>
-          <img width={80} src={reactLogo} alt="react logo" /> {intl.formatMessage({ id: 'title' })}
+          <img width={80} src={reactLogo} alt="react logo" /> baslık
         </h1>
-        <p>{intl.formatMessage({ id: 'description' })}</p>
+        <p>acıklama</p>
         <div className="social-bagdes">
           <a
             href="https://github.com/azouaoui-med/react-pro-sidebar"
@@ -60,7 +62,7 @@ const Main = ({
           onColor="#219de9"
           offColor="#bbbbbb"
         />
-        <span> {intl.formatMessage({ id: 'collapsed' })}</span>
+        <span> collapsed</span>
       </div>
       <div className="block">
         <Switch
@@ -73,7 +75,7 @@ const Main = ({
           onColor="#219de9"
           offColor="#bbbbbb"
         />
-        <span> {intl.formatMessage({ id: 'rtl' })}</span>
+        <span> rtl</span>
       </div>
       <div className="block">
         <Switch
@@ -86,7 +88,7 @@ const Main = ({
           onColor="#219de9"
           offColor="#bbbbbb"
         />
-        <span> {intl.formatMessage({ id: 'image' })}</span>
+        <span> image</span>
       </div>
 
       <footer>

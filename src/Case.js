@@ -2,16 +2,13 @@ import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import { AddCaseModal } from './AddCaseModal';
-
 export class Case extends Component {
     constructor(props) {
         super(props);
-        this.state = { datas: [], addModalShow: false, editModalShow: false }
+        this.state = { datas: [], addModalShow: false, editModalShow: false }        
     }
-
     refreshlist() {
         console.log("geldim");
-       
         fetch(`${process.env.REACT_APP_API}Case/GetAll`,
             {
                 method: "GET",  
@@ -27,22 +24,16 @@ export class Case extends Component {
                 localStorage.setItem('kullanici',JSON.stringify(data));
                 let itemname = localStorage.getItem('kullanıcı');
                 console.log('itemname: ', itemname);
-
             })
             .catch(e => {
                 console.log(e)
             })
-
         let data = this.state;
-
     }
-
     componentDidMount() {
         this.refreshlist();
+        console.log("did mount oldum");
     }
-
-
-
     deleteDep(caseid) {
         if (window.confirm('Are you sure?')) {
             console.log(caseid);
@@ -55,13 +46,12 @@ export class Case extends Component {
             })
         }
     }
-
     render() {
         const { datas, caseid, casename } = this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
-            <div >
+            <div className='container'>
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>
@@ -90,13 +80,10 @@ export class Case extends Component {
                                             })}>
                                             Edit
                                         </Button>
-
                                         <Button className="mr-2" variant="danger"
                                             onClick={() => this.deleteDep(data.id)}>
                                             Delete
                                         </Button>
-
-
                                     </ButtonToolbar>
                                 </td>
                             </tr>)}
@@ -106,12 +93,10 @@ export class Case extends Component {
                     <Button variant='primary'
                         onClick={() => this.setState({ addModalShow: true })}>
                         Add Case</Button>
-
                     <AddCaseModal refresh={this.refreshlist} show={this.state.addModalShow}
                         onHide={addModalClose} />
                 </ButtonToolbar>
             </div>
         )
-
     }
 }

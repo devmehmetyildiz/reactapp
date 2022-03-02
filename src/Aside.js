@@ -1,5 +1,6 @@
 import React from 'react';
-import { useIntl } from 'react-intl';
+import { NavLink } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux'
 import {
   ProSidebar,
@@ -14,9 +15,10 @@ import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart } fro
 import sidebarBg from './assets/bg2.jpg';
 
 const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
-  const intl = useIntl();
+
   const reduxcollapse = useSelector((state) => state.navbarredux.collapse)
   return (
+
     <ProSidebar
       image={image ? sidebarBg : false}
       rtl={rtl}
@@ -32,36 +34,43 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
       <SidebarContent>
         <Menu iconShape="circle">
           <MenuItem icon={<FaTachometerAlt />}>
-            {intl.formatMessage({ id: 'dashboard' })}
+
+            <NavLink to="/">
+              Home
+            </NavLink>
+
           </MenuItem>
           <MenuItem icon={<FaGem />}>
-            {intl.formatMessage({ id: 'components' })}</MenuItem>
+          <NavLink to="/Case">
+              Case
+            </NavLink>
+          </MenuItem>
           <SubMenu
-            title={intl.formatMessage({ id: 'withSuffix' })}
+            title='withSuffix'
             icon={<FaRegLaughWink />}
           >
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 1</MenuItem>
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 2</MenuItem>
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3</MenuItem>
+            <MenuItem>1</MenuItem>
+            <MenuItem>2</MenuItem>
+            <MenuItem>3</MenuItem>
           </SubMenu>
-          <SubMenu           
-            title={intl.formatMessage({ id: 'withPrefix' })}
+          <SubMenu
+            title='withPrefix'
             icon={<FaHeart />}
           >
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 1</MenuItem>
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 2</MenuItem>
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3</MenuItem>
+            <MenuItem> 1</MenuItem>
+            <MenuItem> 2</MenuItem>
+            <MenuItem> 3</MenuItem>
           </SubMenu>
-          <SubMenu title={intl.formatMessage({ id: 'multiLevel' })} icon={<FaList />}>
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 1 </MenuItem>
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 2 </MenuItem>
-            <SubMenu title={`${intl.formatMessage({ id: 'submenu' })} 3`}>
-              <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3.1 </MenuItem>
-              <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3.2 </MenuItem>
-              <SubMenu title={`${intl.formatMessage({ id: 'submenu' })} 3.3`}>
-                <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3.3.1 </MenuItem>
-                <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3.3.2 </MenuItem>
-                <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3.3.3 </MenuItem>
+          <SubMenu title='multiLevel' icon={<FaList />}>
+            <MenuItem> 1 </MenuItem>
+            <MenuItem> 2 </MenuItem>
+            <SubMenu title='3'>
+              <MenuItem> 3.1 </MenuItem>
+              <MenuItem> 3.2 </MenuItem>
+              <SubMenu title='3.3'>
+                <MenuItem> 3.3.1 </MenuItem>
+                <MenuItem> 3.3.2 </MenuItem>
+                <MenuItem> 3.3.3 </MenuItem>
               </SubMenu>
             </SubMenu>
           </SubMenu>
@@ -83,12 +92,13 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
           >
             <FaGithub />
             <span style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
-              {intl.formatMessage({ id: 'viewSource' })}
+
             </span>
           </a>
         </div>
       </SidebarFooter>
     </ProSidebar>
+
   );
 };
 

@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
-$sidebar-bg-color: #0b0939;
-$submenu-bg-color: #0b0939;
-$submenu-bg-color-collapsed: #0b0939;
+$sidebar-bg-color: #310606;
+$submenu-bg-color: #390d0d;
+$submenu-bg-color-collapsed: #390d0d;
 $sidebar-color: #b3b8d4;
 $highlight-color: #dee2ec;
 $icon-bg-color: rgba(255, 255, 255, 0.05);
@@ -20,6 +20,11 @@ $icon-size: 35px;
  height:calc(100% - 3rem);
 }
 
+.logoutitem{
+  justify-content: center;
+  font-size: 10px;
+  align-items: center;
+}
 
 .menuicon{  
   padding: 30px;
@@ -30,10 +35,19 @@ $icon-size: 35px;
   cursor: pointer;  
 }
 
+.appicon{
+  justify-content: end;
+  width: 100%;
+  display: flex;
+  color: white;
+  font-size: 30px;
+  align-items: center;
+}
+
 .header {
   width: 100%;
   height: 3rem;
-  background-color: #0b0939;
+  background-color: #310606;
   display: flex;
   justify-content: start;
   align-items: center;
